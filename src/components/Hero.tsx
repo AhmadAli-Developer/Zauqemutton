@@ -127,7 +127,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="animate-fade-up opacity-0 stagger-3 flex flex-col sm:flex-row items-center gap-4 mb-12 lg:mb-16">
-            <Link href="#menu" className="btn-gold text-base px-8 py-4 w-full sm:w-auto">
+            <Link href="/menu" className="btn-gold text-base px-8 py-4 w-full sm:w-auto">
               View Full Menu
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -167,7 +167,7 @@ export default function Hero() {
           {/* Scroll indicator with high contrast & clear visibility */}
           <div className="mt-10 sm:mt-14 flex justify-center">
             <Link
-              href="#menu"
+              href="/menu"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold/40 bg-card hover:bg-gold-muted hover:border-gold text-gold font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-gold-sm hover:shadow-gold-md group"
               aria-label="Explore Menu"
             >

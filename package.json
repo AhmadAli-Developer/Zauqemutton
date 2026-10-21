@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node -r ./patch-fs.js node_modules/next/dist/bin/next dev",
+    "build": "node -r ./patch-fs.js node_modules/next/dist/bin/next build",
     "start": "next start",
     "lint": "next lint"
   },

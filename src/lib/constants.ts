@@ -206,10 +206,11 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#menu", label: "Menu" },
-  { href: "#services", label: "Qurbani & Sadqah" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Menu" },
+  { href: "/order", label: "Order Now" },
+  { href: "/qurbani-sadqah", label: "Qurbani & Sadqah" },
+  { href: "/contact", label: "Contact" },
 ] as const;
 
 export const FEATURES = [

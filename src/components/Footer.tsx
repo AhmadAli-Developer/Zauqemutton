@@ -11,15 +11,29 @@ import {
   ArrowUp,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { BUSINESS, NAV_LINKS } from "@/lib/constants";
 
-export default function Footer() {
+interface FooterProps {
+  showContact?: boolean;
+  isStandalonePage?: boolean;
+}
+
+export default function Footer({
+  showContact = true,
+  isStandalonePage = false,
+}: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer id="contact" className="relative pt-20 lg:pt-32 overflow-hidden">
+    <footer
+      id="contact"
+      className={`relative overflow-hidden ${
+        isStandalonePage ? "pt-12 lg:pt-16" : "pt-20 lg:pt-32"
+      }`}
+    >
       {/* Background accent */}
       <div
         className="absolute top-0 left-0 w-full h-px"
@@ -29,20 +43,25 @@ export default function Footer() {
       />
 
       <div className="max-w-7xl mx-auto section-padding relative z-10">
-        {/* Top: Contact + Map */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
-          {/* Contact Info */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gold-gradient flex items-center justify-center shadow-gold-sm">
-                <span className="text-zinc-950 font-heading font-bold text-xl">
-                  Z
-                </span>
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-xl text-warm-white">
-                  {BUSINESS.name}
-                </h3>
+        {showContact && (
+          /* Top: Contact + Map */
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+            {/* Contact Info */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center border border-gold/40 shadow-gold-sm bg-card">
+                  <Image
+                    src="/logo.png"
+                    alt="Zauq-e-Mutton Logo"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-heading font-bold text-xl text-warm-white">
+                    {BUSINESS.name}
+                  </h3>
                 <span className="text-xs text-warm-gray uppercase tracking-[0.2em]">
                   {BUSINESS.tagline}
                 </span>
@@ -176,6 +195,7 @@ export default function Footer() {
             </div>
           </a>
         </div>
+        )}
 
         {/* Divider */}
         <div className="gold-divider mb-8" />

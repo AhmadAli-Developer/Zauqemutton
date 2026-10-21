@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Sparkles } from "lucide-react";
-import { BUSINESS, MENU_ITEMS, MENU_CATEGORIES, type MenuCategory } from "@/lib/constants";
+import { Sparkles } from "lucide-react";
+import { MENU_ITEMS, MENU_CATEGORIES, type MenuCategory } from "@/lib/constants";
 
 export default function MenuSection() {
   const [activeTab, setActiveTab] = useState<MenuCategory>("all");
@@ -11,13 +11,6 @@ export default function MenuSection() {
     activeTab === "all"
       ? MENU_ITEMS
       : MENU_ITEMS.filter((item) => item.category === activeTab);
-
-  const getWhatsAppLink = (itemName: string) => {
-    const message = encodeURIComponent(
-      `Hi Zauq-e-Mutton, I want to order ${itemName}. Please share the details.`
-    );
-    return `${BUSINESS.whatsapp}?text=${message}`;
-  };
 
   return (
     <section id="menu" className="relative py-20 lg:py-32 overflow-hidden">
@@ -102,22 +95,9 @@ export default function MenuSection() {
                 <h3 className="font-heading font-semibold text-lg lg:text-xl text-warm-white mb-1.5 group-hover:text-gold transition-colors duration-300">
                   {item.name}
                 </h3>
-                <p className="font-urdu text-base lg:text-lg text-gold/80 mb-6" dir="rtl">
+                <p className="font-urdu text-base lg:text-lg text-gold/80" dir="rtl">
                   {item.urduName}
                 </p>
-              </div>
-
-              {/* Order Button */}
-              <div>
-                <a
-                  href={getWhatsAppLink(item.name)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp text-xs w-full py-3"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Order via WhatsApp
-                </a>
               </div>
             </div>
           ))}
